@@ -1,0 +1,89 @@
+<div class = "container">
+<h3 align = "center">Employee Form</h3> 
+    <form #form = "ngForm" novalidate> 
+          
+        <div class = "form-group">
+            <label for = "FirstNameID"><b>First Name</b></label>
+            <input id = "FirstNameID" type = "text" class = "form-control" required placeholder = "First Name" 
+            name = "firstName" [(ngModel)] = "emp.firstName"/>
+        </div>
+
+        <div class = "form-group">
+            <label for = "LastNameID" ><b>Last Name</b></label>
+            <input id = "LastNameID" type = "text" class = "form-control" required placeholder = "Last Name" name = "lastName"  [(ngModel)] = "emp.lastName"/>
+        </div>
+
+         <div class = "form-group">
+            <label for = "EmailID" ><b>Email</b></label>
+            <input id = "EmailID" type = "email" class = "form-control" required placeholder = "Email" name = "email"  [(ngModel)] = "emp.email"/>
+        </div>
+
+        <div class = "form-group">
+            <label for = "ContactID" ><b>Contact no.</b></label>
+            <input id = "ContactID" type = "text" class = "form-control" required placeholder = "Contact no." name = "contact"  [(ngModel)] = "emp.contact"/>
+        </div>
+
+        <div class = "form-group">
+            <label for = "AddressID" ><b>Address</b></label>
+            <textarea id = "AddressID" class = "form-control" required name = "address" [(ngModel)] = "emp.address"></textarea>
+        </div>
+
+        <div class = "form-group">
+            <label for = "UsernameID" ><b>Username</b></label>
+            <input id = "UsernameID" type = "text" class = "form-control" required placeholder = "Username" name = "username"  [(ngModel)] = "emp.username"/>
+        </div>
+
+        <div class = "form-group">
+            <label for = "PasswordID" ><b>Password</b></label>
+            <input id = "PasswordID" type = "password" class = "form-control" required placeholder = "Password" name = "password"  [(ngModel)] = "emp.password"/>
+        </div>
+
+       <div class = "form-group">
+           <label><b>Qualification</b></label>
+            <select class = "form-control" name = "qualification" [(ngModel)] = "emp.qualificationSelected">
+                <option *ngFor = "let qual of qualifications">
+                    {{qual}}
+                </option>
+            </select>
+        </div>
+
+        <div class = "form-group">
+           <label><b>Experience</b></label>
+            <select class = "form-control" name = "experience" [(ngModel)] = "emp.experienceSelected">
+                <option *ngFor = "let exp of experiences">
+                    {{exp}}
+                </option>
+            </select>
+        </div>
+
+
+        <label><b>Gender</b></label>
+        <br/>
+        <div class= "radio">
+            <label><input type = "radio" name = "gender" value = "Male" [(ngModel)] = "emp.gender"> Male</label>
+        </div>  
+        <div class= "radio">
+            <label><input type = "radio" name = "gender" value = "Female" [(ngModel)] = "emp.gender"> Female</label>
+        </div>   
+
+        <label><b>Coding Languages</b></label>
+        <br/>
+      <!--  <div class = "checkbox">
+           <input *ngFor = "let lang of languages" type = "checkbox"/>
+             <label for = "lang">
+                {{lang}}
+            </label>
+
+        </div>-->
+
+
+        <div class = "checkbox" *ngFor = "let lang of languages">
+            <label><input type = "checkbox" (change)="foo(lang)">{{lang}}</label>
+        </div>
+
+    <br/>
+        <button class = "btn btn-primary" (click)="submitDetails()">Submit</button>
+    </form>
+  
+</div>
+
