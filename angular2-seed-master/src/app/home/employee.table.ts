@@ -9,20 +9,23 @@ import {EmployeeService} from '../employee.service';
 })
 export class TableComponent implements OnInit{
      empList : Array<Employee>;
-     empGetService = new EmployeeService();
+  
       constructor(private router : Router,
                  private empService : EmployeeService){
               
      }
     ngOnInit(){
-        this.empList=this.empGetService.getEmployee(); 
+        this.empList=this.empService.getEmployee(); 
         console.log(this.empList);
         
     }
-    showDetails(){
-     //   console.log("Hellllllooooo!!");
-     
+    delete(emp : Employee){
+        alert(emp.username);
+        this.empList = this.empService.deleteEmployee(emp);
+    }
+    editemp(employ:Employee){
+        alert(employ.username);
+        this.router.navigate(['\home',1,employ.username]);
     }
     
-
 }

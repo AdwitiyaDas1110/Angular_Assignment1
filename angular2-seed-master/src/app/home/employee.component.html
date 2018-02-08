@@ -68,13 +68,7 @@
 
         <label><b>Coding Languages</b></label>
         <br/>
-      <!--  <div class = "checkbox">
-           <input *ngFor = "let lang of languages" type = "checkbox"/>
-             <label for = "lang">
-                {{lang}}
-            </label>
-
-        </div>-->
+      
 
 
         <div class = "checkbox" *ngFor = "let lang of languages">
@@ -82,7 +76,8 @@
         </div>
 
     <br/>
-        <button class = "btn btn-primary" (click)="submitDetails()">Submit</button>
+        <button class = "btn btn-primary" type = "button" (click)="submitDetails()">Submit</button>
+
     </form>
   
 </div>

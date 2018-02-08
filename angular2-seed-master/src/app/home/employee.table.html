@@ -1,4 +1,5 @@
 <h3 align = "center">Employee List</h3>
+<div>
 <table class = "table">
     <tr>
         <th>First Name</th>
@@ -17,6 +18,20 @@
     <tr *ngFor = "let emp of empList">
         <td>{{emp.firstName}}</td>
         <td>{{emp.lastName}}</td>
+        <td>{{emp.email}}</td>
+        <td>{{emp.contact}}</td>
+        <td>{{emp.address}}</td>
+        <td>{{emp.username}}</td>
+        <td>{{emp.password}}</td>
+        <td>{{emp.gender}}</td>
+        <td>{{emp.qualificationSelected}}</td>
+        <td>{{emp.experienceSelected}}</td>
+        <td>{{emp.codingLanguages}}</td>
+        <td><button (click) = "delete(emp)">Delete</button>
+            <button (click) = "editemp(emp)" >Edit</button></td>
     </tr>
 </table>
-<a routerLink = "/home">Employee Form</a>
+</div>
+<div style = "margin-top : 30px">
+<button class = "btn btn-primary" routerLink = "/home">Add Employee</button>
+</div>

@@ -10,7 +10,7 @@ import { TableComponent } from './home/employee.table';
 
 export const rootRouterConfig: Routes = [
   {path: 'tab', component: TableComponent },
-   // {path : 'tab/:firstName', component: TableComponent },
+  {path : 'home/:flag/:username', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'github', component: RepoBrowserComponent,
