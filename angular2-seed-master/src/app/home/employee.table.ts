@@ -20,11 +20,11 @@ export class TableComponent implements OnInit{
         
     }
     delete(emp : Employee){
-        alert(emp.username);
+    //    alert(emp.username);
         this.empList = this.empService.deleteEmployee(emp);
     }
     editemp(employ:Employee){
-        alert(employ.username);
+    //    alert(employ.username);
         this.router.navigate(['\home',1,employ.username]);
     }
     
