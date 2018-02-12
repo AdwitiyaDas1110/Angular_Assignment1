@@ -16,15 +16,13 @@ export class TableComponent implements OnInit{
      }
     ngOnInit(){
         this.empList=this.empService.getEmployee(); 
-        console.log(this.empList);
+       // console.log(this.empList);
         
     }
     delete(emp : Employee){
-    //    alert(emp.username);
         this.empList = this.empService.deleteEmployee(emp);
     }
     editemp(employ:Employee){
-    //    alert(employ.username);
         this.router.navigate(['\home',1,employ.username]);
     }
     

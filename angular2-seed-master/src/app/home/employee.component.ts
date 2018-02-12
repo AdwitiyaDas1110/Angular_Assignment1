@@ -12,10 +12,11 @@ export class HomeComponent implements OnInit {
     qualifications : Array<string> = [];
     experiences : Array<string> = [];
     languages : Array<string> = [];
-    selectedOptionArray: Array<string> = [];
-   constructor(private router : Router, private activatedRoute : ActivatedRoute, private empService : EmployeeService){
+    constructor(private router : Router, private activatedRoute : ActivatedRoute, private empService : EmployeeService){
               
      }
+     emp : any;
+          
 
     ngOnInit(){
          this.qualifications = ['B.Tech', 'BCA','M.Tech','MCA','Other'];
@@ -25,28 +26,32 @@ export class HomeComponent implements OnInit {
          if(flag == 1){
            let uname = this.activatedRoute.snapshot.params['username'];
            for(var i = 0 ; i < EmployeeService.emp_array.length; i++){
-             if(EmployeeService.emp_array[i].username == uname)
-              this.emp = EmployeeService.emp_array[i];
-              this.empService.deleteEmployee(this.emp);
+             if(EmployeeService.emp_array[i].username == uname){
+               this.emp = EmployeeService.emp_array[i];
+               
+               for(var j = 0 ; j < this.emp.codingLanguages.length ; j++){
+                 this.emp.codingLanguages[j].checked = false;
+               }
+               this.empService.deleteEmployee(this.emp);
+
+               break;
            }
          }
+      }
+      else{
+        this.emp = new Employee('','','','','','','','','','',[{name : "Java", checked : false},
+                     {name : "C/C++" , checked : false},
+                     {name : "C#" , checked : false},
+                     {name : "Python" , checked : false},
+                     {name : "Php" , checked : false}]);
+      }
+     
+    }         
          
-
-    }
-     emp = new Employee('','','','','','','','','','',this.selectedOptionArray);
+    
    
-    foo(lang: string)
-    {
-        if(this.selectedOptionArray.some(x => x === lang)){
-          this.selectedOptionArray.splice(this.selectedOptionArray.indexOf(lang),1);
-        }
-        else{
-          this.selectedOptionArray.push(lang);
-        }
-    }
-
+  
     submitDetails() : void {
-        
        let data = JSON.parse(JSON.stringify(this.emp));
        this.empService.setEmployee(this.emp);
        this.router.navigate(['/tab']);

@@ -11,8 +11,10 @@ export class Employee {
                  public gender : string,
                  public qualificationSelected : string,
                  public experienceSelected : string,
-                 public codingLanguages : string[]
-             ){
-                 
-    }
+                 public codingLanguages : Array<lang_check> = []         
+             ){}
+}
+class lang_check{
+    name : string;
+    checked : boolean;
 }

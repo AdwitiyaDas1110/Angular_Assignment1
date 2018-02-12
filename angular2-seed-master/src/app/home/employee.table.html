@@ -26,7 +26,11 @@
         <td>{{emp.gender}}</td>
         <td>{{emp.qualificationSelected}}</td>
         <td>{{emp.experienceSelected}}</td>
-        <td>{{emp.codingLanguages}}</td>
+        <td>
+         <label *ngFor = "let lang of emp.codingLanguages">
+            <label name = "selectedLang" *ngIf = "lang.checked">| {{lang.name}} | </label>
+        </label>
+        </td>
         <td><button (click) = "delete(emp)">Delete</button>
             <button (click) = "editemp(emp)" >Edit</button></td>
     </tr>
